@@ -1,9 +1,9 @@
-import { Component, Inject, inject, OnInit } from '@angular/core';
+import { Component, Inject, inject, OnInit} from '@angular/core'
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Observable, of } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { ContainerComponent } from '../../shared/components/container/container';
 import type { Filme } from '../../core/models';
 import { FilmeService } from '../../core/services/filme.service';

@@ -3,6 +3,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ContainerComponent } from '../../../../shared/components/container/container';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { SalaService } from '../../../../core/services/sala.service';
 
 
 @Component({
