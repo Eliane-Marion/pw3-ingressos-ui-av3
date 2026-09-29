@@ -14,5 +14,14 @@ import { RouterLink } from "@angular/router";
   styleUrl: './sala-lista.css'
 })
 export class SalaListaComponent {
+
+    salaLista: Observable<Sala> = of();
+    private salaService = inject(SalaService);
+    private route = inject(ActivatedRouter);
   
+      ngOnInit(): void {
+    const id = this.route.snapshot.params['id'];
+    this.salaLista = this.salaService.ListarSalasAtivas();
+
+  }
 }

@@ -1,5 +1,6 @@
 # Avaliação prática: CRUD de salas (PW3)
-
+# Natanael Roberto de Oliveira da Silva RM: 241148
+# Isaac Barbosa Borges RM: 241146
 ## 0. Preparação do repositório
 
 ### 0.1 Fork do repositório oficial
