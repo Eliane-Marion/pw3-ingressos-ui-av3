@@ -7,14 +7,23 @@ import { SalaListaComponent } from './pages/admin/sala/sala-lista/sala-lista';
 import { SalaFormComponent } from './pages/admin/sala/sala-form/sala-form';
 
 export const routes: Routes = [
-    {path: '',component: HomeComponent},
-    {path:'filmes/em-cartaz', component: EmCartazComponent},
-    {path:'filmes/detalhes/:id', component: DetalhesComponent},
+    {path: '',
+        component: HomeComponent},
+    {path:'filmes/em-cartaz', 
+        component: EmCartazComponent},
+    {path:'filmes/detalhes/:id', 
+        component: DetalhesComponent},
 	
-    {path: 'salas', component: SalaListaComponent},
-    {path: 'salas/novo', component: SalaFormComponent},
+    {path: 'salas', 
+        component: SalaListaComponent},
+    {path: 'salas/novo', 
+        component: SalaFormComponent},
+    {path: 'salas/:id/editar', 
+        component: SalaFormComponent},
    
-    {path:'not-found', component: NotFoundComponent},
-    {path:'**', component: NotFoundComponent}
+    {path:'not-found', 
+        component: NotFoundComponent},
+    {path:'**', 
+        component: NotFoundComponent}
 
 ];
