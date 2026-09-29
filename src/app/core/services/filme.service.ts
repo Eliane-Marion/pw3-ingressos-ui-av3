@@ -1,21 +1,31 @@
-import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { Filme } from '../models';
-
+import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Sala } from '../models/sala';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FilmeService {
-  private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:8080/filmes';
+export class SalaService {
+  private readonly http = inject(HttpClient);
+  private readonly API_URL = 'http://192.168.2.159:8080/salas';
 
-  listarEmCartaz(): Observable<Filme[]> {
-    return this.http.get<Filme[]>(`${this.apiUrl}/em-cartaz`);
+  listar(): Observable<Sala[]> {
+    return this.http.get<Sala[]>(this.API_URL);
   }
 
-  buscarSessoesPorFilmeId(id: Number): Observable<Filme>{
-    return this.http.get<Filme>(`${this.apiUrl}/${id}/sessoes`);
+  buscarPorId(id: number): Observable<Sala> {
+    return this.http.get<Sala>(`${this.API_URL}/${id}`);
+  }
+
+  salvar(sala: Sala): Observable<Sala> {
+    if (sala.id) {
+      return this.http.put<Sala>(`${this.API_URL}/${sala.id}`, sala);
+    }
+    return this.http.post<Sala>(this.API_URL, sala);
+  }
+
+  excluir(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.API_URL}/${id}`);
   }
 }

@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Cadastro de Sala</h2>
+
+  <form [formGroup]="formSala" (ngSubmit)="save()">
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" id="nome" formControlName="nome" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label for="preco" class="form-label">Preço</label>
+      <input type="number" id="preco" formControlName="preco" class="form-control" step="0.01" />
+    </div>
+
+    <button type="submit" [disabled]="formSala.invalid" class="btn btn-success me-2">Salvar</button>
+    <button type="button" (click)="router.navigate(['/salas'])" class="btn btn-secondary">Cancelar</button>
+  </form>
+</div>
