@@ -1,7 +1,8 @@
 <app-container>
   <div class="page-container">
+    <h1>Salas</h1>
     <h2>Lista de Salas</h2>
-
+    <a routerLink = "/salas/novo"></a>
     <div class="actions">
       <button mat-raised-button color="primary" routerLink="novo">
         <mat-icon>add</mat-icon> Nova Sala
@@ -12,13 +13,13 @@
       <table class="data-table">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Nome</th>
             <th>Preço</th>
             <th>Ações</th>
           </tr>
         </thead>
         <tbody>
-         <!-- 
           @for (item of (salas | async); track item.id) {
           <tr>
             <td class="item-title">{{ item.nome }}</td>
@@ -41,7 +42,6 @@
           } @empty {
           <tr><td colspan="3" class="empty-msg">Sem registros</td></tr>
           }
-          -->
         </tbody>
       </table>
     </div>

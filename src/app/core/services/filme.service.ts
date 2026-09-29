@@ -7,6 +7,7 @@ import { Filme } from '../models';
 @Injectable({
   providedIn: 'root'
 })
+
 export class FilmeService {
   private http = inject(HttpClient);
   private apiUrl = 'http://localhost:8080/filmes';
