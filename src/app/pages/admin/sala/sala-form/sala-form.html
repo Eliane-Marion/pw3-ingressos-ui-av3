@@ -1,6 +1,6 @@
 <app-container>
   <div class="form-container">
-    <h2>Registrar Sala</h2>
+    <h2>{{ edicao ? 'Editar Sala' : 'Registrar Sala' }}</h2>
 
     <form [formGroup]="formSala">
       <div class="form-section">
