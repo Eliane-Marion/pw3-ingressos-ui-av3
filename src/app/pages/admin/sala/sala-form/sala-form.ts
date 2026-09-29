@@ -3,6 +3,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ContainerComponent } from '../../../../shared/components/container/container';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import { SalaService } from '../../../../core/services/sala-service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +15,10 @@ import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
   styleUrl: './sala-form.css'
 })
 export class SalaFormComponent {
+  private router = inject(Router)
   private fb = inject(FormBuilder);
+  private salaService = inject(SalaService);
+  private route = inject(ActivatedRoute);
 
   formSala = this.fb.group({
     id: [0],
@@ -21,8 +26,19 @@ export class SalaFormComponent {
     preco: [0]
   });
 
-  save(): void{
-    console.log(this.formSala.value);
+
+    ngOnInit(): void {
+    const id = this.route.snapshot.params['id'];
+    if (id) 
+      {
+      this.salaService.buscarSalaPorId(id).subscribe(sala => {this.formSala.patchValue(sala);});
+    }
+  }
+
+  save(): void {
+    const id = this.route.snapshot.params['id'];
+
+    this.salaService.cadastrarOuAtualizarSala(this.formSala.value as any, id).subscribe(() => {this.router.navigate(['/salas']);});
   }
 
 }
