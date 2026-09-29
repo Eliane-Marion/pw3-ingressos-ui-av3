@@ -18,7 +18,6 @@
           </tr>
         </thead>
         <tbody>
-         <!-- 
           @for (item of (salas | async); track item.id) {
           <tr>
             <td class="item-title">{{ item.nome }}</td>
@@ -30,10 +29,10 @@
               <button mat-raised-button color="primary">
                 <mat-icon>movie</mat-icon> Sessões
               </button>
-              <button mat-raised-button color="accent">
+              <button mat-raised-button color="accent" (click)="editar(item.id)">
                 <mat-icon>edit</mat-icon> Editar
               </button>
-              <button mat-raised-button color="warn">
+              <button mat-raised-button color="warn" (click)="excluir(item.id)">
                 <mat-icon>delete</mat-icon> Excluir
               </button>
             </td>
@@ -41,7 +40,6 @@
           } @empty {
           <tr><td colspan="3" class="empty-msg">Sem registros</td></tr>
           }
-          -->
         </tbody>
       </table>
     </div>
