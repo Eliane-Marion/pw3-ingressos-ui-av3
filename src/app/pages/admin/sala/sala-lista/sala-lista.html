@@ -1,49 +1,46 @@
 <app-container>
   <div class="page-container">
-    <h2>Lista de Salas</h2>
+    <h2>Salas</h2>
 
-    <div class="actions">
-      <button mat-raised-button color="primary" routerLink="novo">
-        <mat-icon>add</mat-icon> Nova Sala
-      </button>
-    </div>
-
-    <div class="table-container">
-      <table class="data-table">
+    <button routerLink="/salas/novo">
+      Nova Sala
+    </button>
+      <table>
         <thead>
           <tr>
+            <th>ID</th>
             <th>Nome</th>
             <th>Preço</th>
             <th>Ações</th>
           </tr>
         </thead>
         <tbody>
-         <!-- 
-          @for (item of (salas | async); track item.id) {
-          <tr>
-            <td class="item-title">{{ item.nome }}</td>
-            <td class="price">{{ item.preco | currency:'BRL':'symbol':'1.2-2' }}</td>
-            <td class="actions-cell">
-              <button mat-raised-button color="primary">
-                <mat-icon>event_seat</mat-icon> Lugares
+
+          <tr *ngFor="let item for sala$ | async; trackBy: trackById">
+            
+            <td>{{ item.id}}</td>
+
+            <td>{{ item.nome}}</td>
+
+            <td>{{ item.preco}}</td>
+
+            <td>
+              <button
+                type="button"
+                (click)="editar(item.id!)">
               </button>
-              <button mat-raised-button color="primary">
-                <mat-icon>movie</mat-icon> Sessões
+
+              <button
+                type="button"
+                (click)="excluir(item.id!)">
               </button>
-              <button mat-raised-button color="accent">
-                <mat-icon>edit</mat-icon> Editar
-              </button>
-              <button mat-raised-button color="warn">
-                <mat-icon>delete</mat-icon> Excluir
-              </button>
+
             </td>
+
           </tr>
-          } @empty {
-          <tr><td colspan="3" class="empty-msg">Sem registros</td></tr>
-          }
-          -->
+         
         </tbody>
       </table>
     </div>
-  </div>
+
 </app-container>

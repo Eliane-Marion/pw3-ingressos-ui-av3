@@ -8,6 +8,7 @@ import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideHttpClient(),
     provideRouter(routes, withComponentInputBinding()),
     provideAnimationsAsync(),
     provideToastr({ positionClass: 'toast-top-right', progressBar: true })
