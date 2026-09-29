@@ -1,1 +1,1 @@
-NOMES: 
+NOMES: Guilherme Rosseto Valentim e Vinicius Kobayashi
